@@ -5,21 +5,21 @@ import React, { useEffect, useRef, memo } from "react";
 function TradingViewWidget() {
   const container = useRef();
 
- useEffect(() => {
-   const scriptId = "tradingview-widget-script";
+  useEffect(() => {
+    const scriptId = "tradingview-widget-script";
 
-   // Check if the script already exists in the document
-   if (!document.getElementById(scriptId)) {
-     const script = document.createElement("script");
-     script.id = scriptId;
-     script.src =
-       "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
-     script.type = "text/javascript";
-     script.async = true;
-     script.innerHTML = `
+    // Check if the script already exists in the document
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src =
+        "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+      script.type = "text/javascript";
+      script.async = true;
+      script.innerHTML = `
         {
-          "width": "980",
-          "height": "610",
+          "width": "1220",
+          "height": "850",
           "symbol": "BITSTAMP:BTCUSD",
           "interval": "D",
           "timezone": "Etc/UTC",
@@ -33,11 +33,16 @@ function TradingViewWidget() {
           "calendar": false,
           "support_host": "https://www.tradingview.com"
         }`;
-     container.current.appendChild(script);
-   }
- }, []);
+      container.current.appendChild(script);
+    }
+  }, []);
 
-  return <div className="tradingview-widget-container" ref={container}></div>;
+  return (
+    <div
+      className="tradingview-widget-container rounded-xl"
+      ref={container}
+    ></div>
+  );
 }
 
 export default memo(TradingViewWidget);

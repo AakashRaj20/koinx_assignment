@@ -1,12 +1,25 @@
 import axios from "axios";
 
+const baseUrl = `https://api.coingecko.com/api/v3`;
+
 export const getCoins = async () => {
   try {
     const response = await axios.get(
-      "https://api.coingecko.com/api/v3/search/trending"
+      `${baseUrl}/search/trending`
     );
     return response.data.coins;
   } catch (error) {
     console.error(error);
   }
 };
+
+export const getCoinInfo = async (id) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/simple/price?ids=${id}&vs_currencies=inr%2Cusd&include_24hr_change=true`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}
