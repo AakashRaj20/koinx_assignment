@@ -69,6 +69,6 @@
 @layer base {
   
   body {
-    @apply bg-slate-300 text-foreground;
+    @apply bg-[#EFF2F5] text-foreground;
   }
 }
