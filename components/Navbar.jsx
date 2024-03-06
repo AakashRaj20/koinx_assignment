@@ -1,9 +1,12 @@
 import { Button } from "./ui/button"
+import Link from "next/link"
 
 const Navbar = () => {
   return (
     <div className="bg-white py-5 px-10 hidden lg:flex justify-between">
-      <p className="text-2xl">Koinx</p>
+     <Link href="/">
+      <p className="text-2xl cursor-pointer">Koinx</p>
+     </Link>
       <div className="flex gap-x-4">
         <Button variant="ghost" className="font-bold text-lg">
           Crypto Taxes

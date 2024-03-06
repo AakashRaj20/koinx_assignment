@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { getCoins } from "@/apiCalls/trendingApi";
 
 const CryptoCoins = () => {
@@ -14,7 +16,14 @@ const CryptoCoins = () => {
     };
 
     fetchCoins();
+    console.log("called");
   }, []);
+
+  const router = useRouter();
+
+  const handleClick = (id, name) => {
+    router.push(`/coin/${id}?name=${name}`);
+  };
 
   //some of the prices are in the format $1<sub title="United States Dollar">USD</sub> from the API response so we need to format them
   const formatPrice = (priceString) => {
@@ -46,30 +55,40 @@ const CryptoCoins = () => {
           </p>
         ))}
       </div>
-      <div className="flex flex-col gap-y-5 cursor-pointer">
+
+      <div className="flex flex-col gap-y-5">
         {coins &&
           coins.map((coin, index) => (
-            <div key={index} className="grid grid-cols-7 gap-4 items-center">
-              <Image
-                src={coin.item.large}
-                alt={coin.item.name}
-                width={50}
-                height={50}
-              />
-              <p>{coin.item.name}</p>
-              <p>{coin.item.symbol}</p>
-              <p>{formatPrice(coin.item.data.price)}</p>
-              <Image
-                src={coin.item.data.sparkline}
-                alt={coin.item.name}
-                width={50}
-                height={50}
-              />
-              <p>{coin.item.data.market_cap}</p>
-              <p>
-                {coin.item.data?.price_change_percentage_24h.usd.toFixed(2)}
-              </p>
-            </div>
+            // <Link
+            //   href={`/coin/${coin.item.id}?name=${coin.item.name}`}
+            //   as={`/coin/${coin.item.id}`}
+            // >
+              <div
+                key={index}
+                className="grid grid-cols-7 gap-4 items-center cursor-pointer"
+                onClick={() => handleClick(coin.item.id, coin.item.name)}
+              >
+                <Image
+                  src={coin.item.large}
+                  alt={coin.item.name}
+                  width={50}
+                  height={50}
+                />
+                <p>{coin.item.name}</p>
+                <p>{coin.item.symbol}</p>
+                <p>{formatPrice(coin.item.data.price)}</p>
+                <Image
+                  src={coin.item.data.sparkline}
+                  alt={coin.item.name}
+                  width={50}
+                  height={50}
+                />
+                <p>{coin.item.data.market_cap}</p>
+                <p>
+                  {coin.item.data?.price_change_percentage_24h.usd.toFixed(2)}
+                </p>
+              </div>
+            // </Link>
           ))}
       </div>
     </div>
