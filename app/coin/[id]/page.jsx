@@ -9,6 +9,7 @@ import GetStarted from "@/components/GetStarted";
 import TopThreeTrending from "@/components/TopThreeTrending";
 import OptionsTabs from "@/components/OptionsTabs";
 import Sentiment from "@/components/Sentiment";
+import AboutCoin from "@/components/AboutCoin";
 
 const Coin = () => {
   const params = useParams();
@@ -48,6 +49,7 @@ const Coin = () => {
           <TradingViewWidget />
           <OptionsTabs coinData={oneCoinInfo} />
           <Sentiment />
+          <AboutCoin coinData={oneCoinInfo} />
         </div>
         <div className="grid col-span-4">
           <div className="flex flex-col items-start gap-y-5">
