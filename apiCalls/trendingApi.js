@@ -23,3 +23,29 @@ export const getCoinInfo = async (id) => {
     console.error(error);
   }
 }
+
+export const getCoinsList = async () => {
+    try {
+      const response = await axios.get(
+        `${baseUrl}/coins/list`,{
+          params: {
+            order: "market_cap_desc",
+          }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+};
+
+export const getOneCoinInfo = async (id) => {
+  try {
+    const response = await axios.get(
+      `${baseUrl}/coins/${id}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+}

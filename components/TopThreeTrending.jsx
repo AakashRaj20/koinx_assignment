@@ -21,7 +21,7 @@ const TopThreeTrending = () => {
   console.log(coins.splice(3));
 
   return (
-    <div className="bg-white rounded-xl p-7 flex flex-col gap-y-5">
+    <div className="bg-white rounded-xl p-7 flex flex-col gap-y-5 w-full">
       <h2 className="text-2xl font-bold">Trending Coins {"(24h)"}</h2>
       <div className="flex flex-col gap-y-4">
         {coins.map((coin, index) => (
