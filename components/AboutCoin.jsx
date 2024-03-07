@@ -106,7 +106,7 @@ const AboutCoin = ({ coinData }) => {
           </div>
         </div>
       </div>
-      <p>
+      <p className="text-[#3E424A]">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
         sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
