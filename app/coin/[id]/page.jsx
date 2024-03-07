@@ -11,6 +11,7 @@ import OptionsTabs from "@/components/OptionsTabs";
 import Sentiment from "@/components/Sentiment";
 import AboutCoin from "@/components/AboutCoin";
 import Tokenomics from "@/components/Tokenomics";
+import Team from "@/components/Team";
 
 const Coin = () => {
   const params = useParams();
@@ -52,6 +53,7 @@ const Coin = () => {
           <Sentiment />
           <AboutCoin coinData={oneCoinInfo} />
           <Tokenomics />
+          <Team />
         </div>
         <div className="grid col-span-4">
           <div className="flex flex-col items-start gap-y-5">
