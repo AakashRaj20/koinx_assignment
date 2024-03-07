@@ -113,7 +113,7 @@ const OptionsTabs = ({ coinData }) => {
       </TabsList>
       <TabsContent value="overview">
         <div className="bg-white flex flex-col p-10 gap-y-6 rounded-lg mt-8">
-          <p className="text-2xl font-bold">Performance</p>
+          <p className="text-4xl font-bold">Performance</p>
           <div className="flex justify-between items-center">
             <p className="text-start text-base font-light leading-8 text-[#44475B]">
               Today's Low <br />
@@ -152,7 +152,7 @@ const OptionsTabs = ({ coinData }) => {
           </div>
           <div className="my-12 flex flex-col gap-y-6">
             <div className="flex gap-x-3">
-              <p className="text-2xl font-bold">Fundamentals</p>
+              <p className="text-2xl text-[#44475B] font-bold">Fundamentals</p>
               <Image
                 src="/images/info-icon.svg"
                 alt="info-icon"
@@ -200,7 +200,7 @@ const OptionsTabs = ({ coinData }) => {
           </div>
         </div>
       </TabsContent>
-      {TabTriggers.map((trigger, index) => (
+      {/* {TabTriggers.map((trigger, index) => (
         <TabsContent key={index} value={trigger.toLowerCase()}>
           <div className="bg-white flex flex-col p-10 gap-y-6 rounded-lg mt-8">
             <p className="text-2xl font-bold">{trigger}</p>
@@ -210,7 +210,7 @@ const OptionsTabs = ({ coinData }) => {
           </div>
         </TabsContent>
       
-      ))}
+      ))} */}
     </Tabs>
   );
 };
