@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { ChevronRight, ArrowLeft, ChevronLeft } from "lucide-react";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -162,7 +162,7 @@ const CarouselItem = React.forwardRef(({ className, ...props }, ref) => {
 CarouselItem.displayName = "CarouselItem";
 
 const CarouselPrevious = React.forwardRef(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  ({ className, type, variant = "outline", size = "icon", ...props }, ref) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
     return (
@@ -171,19 +171,22 @@ const CarouselPrevious = React.forwardRef(
         variant={variant}
         size={size}
         className={cn(
-          "absolute  h-12 w-12 rounded-full",
+          "absolute  h-14 w-14 rounded-full border-none",
           orientation === "horizontal"
-            ? "left-2 top-1/2 -translate-y-1/2"
+            ? "-left-12 top-1/2 -translate-y-1/2"
             : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
-          !canScrollPrev && "hidden",
+          !canScrollPrev &&
+            ((type !== "coinSlider" && "hidden") ||
+              (type === "coinSlider" && "hidden md:flex")),
+          type !== "coinSlider" ? "h-0 w-0 md:h-14 md:w-14" : "h-8 w-8",
           className
         )}
-        disabled={!canScrollPrev}
+        disabled={type !== "coinSlider" && !canScrollPrev}
         onClick={scrollPrev}
         {...props}
       >
         <ChevronLeft
-          className="w-10 h-10"
+          className={type !== "coinSlider" ? "h-8 w-8" : "h-4 w-4"}
         />
         <span className="sr-only">Previous slide</span>
       </Button>
@@ -193,7 +196,7 @@ const CarouselPrevious = React.forwardRef(
 CarouselPrevious.displayName = "CarouselPrevious";
 
 const CarouselNext = React.forwardRef(
-  ({ className, variant = "outline", size = "icon", ...props }, ref) => {
+  ({ className, type, variant = "outline", size = "icon", ...props }, ref) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
 
     return (
@@ -202,18 +205,23 @@ const CarouselNext = React.forwardRef(
         variant={variant}
         size={size}
         className={cn(
-          "absolute h-12 w-12 rounded-full",
+          "absolute rounded-full border-none",
           orientation === "horizontal"
-            ? "right-2 top-1/2 -translate-y-1/2"
+            ? "-right-12 top-1/2 -translate-y-1/2"
             : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
-            !canScrollNext && "hidden",
+          !canScrollNext &&
+            ((type !== "coinSlider" && "hidden") ||
+              (type === "coinSlider" && "hidden md:flex")),
+          type !== "coinSlider" ? "h-0 w-0 md:h-14 md:w-14" : "h-8 w-8",
           className
         )}
-        disabled={!canScrollNext}
+        disabled={type !== "coinSlider" && !canScrollNext}
         onClick={scrollNext}
         {...props}
       >
-        <ChevronRight className="h-10 w-10" />
+        <ChevronRight
+          className={type !== "coinSlider" ? "h-8 w-8" : "h-4 w-4"}
+        />
         <span className="sr-only">Next slide</span>
       </Button>
     );

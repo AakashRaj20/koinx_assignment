@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutCoin = ({ coinData }) => {
   return (
-    <div className="bg-white rounded-lg p-10 flex flex-col gap-y-6">
+    <div className="bg-white rounded-lg px-2 py-4 md:p-10 flex flex-col gap-y-6">
       <h2 className="text-4xl font-bold">
         {coinData && `About ${coinData.name}`}
       </h2>
@@ -14,7 +14,7 @@ const AboutCoin = ({ coinData }) => {
       <p className="text-[#3E424A]">
         {coinData && coinData.description.en.substring(0, 700)}.
       </p>
-      <div className="flex flex-col gap-y-4 border-y-2 py-5">
+      <div className="flex flex-col gap-y-4 md:border-y-2 md:py-5">
         <h3 className="text-2xl font-bold">Lorem ipsum dolor sit amet elit</h3>
         <div className="text-[#3E424A] flex flex-col gap-y-8">
           <p>
@@ -65,11 +65,11 @@ const AboutCoin = ({ coinData }) => {
           </p>
         </div>
       </div>
-      <div className="border-b-2 pb-5 flex flex-col gap-y-4">
+      <div className="md:border-b-2 md:pb-5 flex flex-col gap-y-4">
         <h2 className="text-2xl font-bold">{`Already Holding ${
           coinData && coinData.name
         }?`}</h2>
-        <div className="flex gap-x-4">
+        <div className="flex flex-col md:flex-row gap-4">
           <div className="flex gap-x-5 rounded-lg bg-gradient-to-br from-[#76ECA5] to-[#1363AC] p-4 max-w-[25rem] w-full">
             <Image
               className="rounded-lg aspect-square"
@@ -106,7 +106,7 @@ const AboutCoin = ({ coinData }) => {
           </div>
         </div>
       </div>
-      <p className="text-[#3E424A]">
+      <p className="text-[#3E424A] hidden md:flex">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor
         sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt

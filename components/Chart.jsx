@@ -11,6 +11,7 @@ function TradingViewWidget() {
     // Check if the script already exists in the document
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
+
       script.id = scriptId;
       script.src =
         "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
@@ -18,7 +19,7 @@ function TradingViewWidget() {
       script.async = true;
       script.innerHTML = `
         {
-          "width": "1220",
+          "width": "100%",
           "height": "850",
           "symbol": "BITSTAMP:BTCUSD",
           "interval": "D",
@@ -38,10 +39,9 @@ function TradingViewWidget() {
   }, []);
 
   return (
-    <div
-      className="tradingview-widget-container rounded-xl"
-      ref={container}
-    ></div>
+    <div className="w-full relative">
+      <div className="tradingview-widget-container" ref={container}></div>
+    </div>
   );
 }
 

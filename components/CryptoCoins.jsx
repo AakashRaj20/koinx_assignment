@@ -1,9 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { getCoinsList } from "@/apiCalls/trendingApi";
 
 const CryptoCoins = () => {
@@ -19,13 +17,7 @@ const CryptoCoins = () => {
     console.log("called");
   }, []);
 
-  coins.sort((a,b) => a.name.localeCompare(b.name));
-
-  const router = useRouter();
-
-  const handleClick = (id, name) => {
-    router.push(`/coin/${id}?name=${name}`);
-  };
+  coins && coins.sort((a, b) => a.name.localeCompare(b.name));
 
   const headings = ["Symbol", "Name"];
 
@@ -42,14 +34,12 @@ const CryptoCoins = () => {
       <div className="flex flex-col gap-y-5">
         {coins &&
           coins.map((coin, index) => (
-            <div
-              key={index}
-              className="grid grid-cols-2 gap-4 items-center cursor-pointer"
-              onClick={() => handleClick(coin.id, coin.name)}
-            >
-              <p>{coin.symbol}</p>
-              <p>{coin.name}</p>
-            </div>
+            <Link href={`/coin/${coin.id}`} key={index}>
+              <div className="grid grid-cols-2 gap-4 items-center cursor-pointer">
+                <p>{coin.symbol}</p>
+                <p>{coin.name}</p>
+              </div>
+            </Link>
           ))}
       </div>
     </div>

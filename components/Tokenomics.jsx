@@ -15,11 +15,11 @@ const Tokenomics = () => {
     ],
   };
   return (
-    <div className="bg-white rounded-lg p-10 flex flex-col gap-y-6">
+    <div className="bg-white rounded-lg px-2 py-4 lg:p-10 lg:flex flex-col gap-y-6 hidden">
       <h2 className="text-4xl font-bold">Tokenomics</h2>
       <p className="text-2xl font-bold">Initial Distribution</p>
-      <div className="flex gap-x-10">
-        <div className="w-52 h-52">
+      <div className="flex gap-x-5 md:gap-x-10">
+        <div className="w-28 md:w-52 h-28 md:h-52">
           <Doughnut data={data} />
         </div>
         <div className="flex flex-col justify-center gap-y-4 font-light text-[#3E424A]">

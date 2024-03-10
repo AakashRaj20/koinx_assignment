@@ -1,24 +1,16 @@
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "./ui/button";
+import { AlignJustify } from "lucide-react";
 
 const MobileNav = () => {
   return (
-    <div className="flex lg:hidden bg-white justify-between px-5 py-2 items-center">
-      <p className="text-base font-bold">Koinx</p>
+    <div className="flex lg:hidden bg-white justify-between px-5 py-5 items-center">
+      <p className="text-2xl font-bold">Koinx</p>
       <Sheet className="flex flex-col justify-center items-center">
         <SheetTrigger asChild>
-          <Button variant="outline">Open</Button>
+          <AlignJustify className="w-8 h-8" />
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent className="flex flex-col">
           <Button variant="ghost" className="font-bold text-base">
             Crypto Taxes
           </Button>

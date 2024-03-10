@@ -1,7 +1,6 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { getCoinInfo, getOneCoinInfo } from "@/apiCalls/trendingApi";
 import TradingViewWidget from "@/components/Chart";
@@ -12,13 +11,13 @@ import Sentiment from "@/components/Sentiment";
 import AboutCoin from "@/components/AboutCoin";
 import Tokenomics from "@/components/Tokenomics";
 import Team from "@/components/Team";
+import Footer from "@/components/Footer";
+import { ChevronsRight } from "lucide-react";
+import Link from "next/link";
 
 const Coin = () => {
   const params = useParams();
-  const searchParams = useSearchParams();
-  const name = searchParams.get("name");
   const { id } = params;
-  console.log(name);
 
   const [coinInfo, setCoinInfo] = useState(null);
   const [oneCoinInfo, setOneCoinInfo] = useState(null);
@@ -38,29 +37,46 @@ const Coin = () => {
     fetchCoininfo();
   }, [id]);
 
-  console.log(coinInfo);
-  console.log(oneCoinInfo);
   return (
-    <div className="px-10 py-5 flex flex-col gap-y-5">
-      <p className="font-light text-black/60">
-        Cryptocurrencies {" >> "}
-        <span className="font-medium text-black">{name}</span>
-      </p>
-      <div className="grid grid-cols-12 gap-4">
-        <div className="grid col-span-8 gap-y-5">
-          <TradingViewWidget />
-          <OptionsTabs coinData={oneCoinInfo} />
-          <Sentiment />
-          <AboutCoin coinData={oneCoinInfo} />
-          <Tokenomics />
-          <Team />
+    <div className="pt-5 flex flex-col gap-y-5">
+      <div className="px-2 lg:px-10">
+        <div className="flex font-light text-black/60 mb-4 gap-x-1">
+          <Link href="/">
+            <p>Cryptocurrencies</p>
+          </Link>
+          <ChevronsRight />
+          <p className="font-medium text-black">
+            {oneCoinInfo && oneCoinInfo.name}
+          </p>
         </div>
-        <div className="grid col-span-4">
-          <div className="flex flex-col items-start gap-y-5">
-            <GetStarted />
-            <TopThreeTrending />
+        <div className="grid grid-cols-12 gap-5">
+          <div className="col-span-12 lg:col-span-8">
+            <div className="flex flex-col gap-y-5">
+              <TradingViewWidget />
+              <OptionsTabs coinData={oneCoinInfo} />
+              <Sentiment />
+              <AboutCoin coinData={oneCoinInfo} />
+              <Tokenomics />
+              <Team />
+            </div>
+          </div>
+          <div className="col-span-12 lg:col-span-4">
+            <div className="flex flex-col items-start gap-y-5">
+              <div className="w-full">
+                <GetStarted />
+              </div>
+              <div className="w-full hidden lg:flex">
+                <TopThreeTrending />
+              </div>
+            </div>
           </div>
         </div>
+      </div>
+      <div className="hidden md:flex">
+        <Footer />
+      </div>
+      <div className="flex md:hidden w-full">
+        <TopThreeTrending />
       </div>
     </div>
   );
