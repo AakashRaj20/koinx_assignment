@@ -3,25 +3,28 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getCoinsList } from "@/apiCalls/trendingApi";
+import Loading from "./Loading";
 
 const CryptoCoins = () => {
   const [coins, setCoins] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchCoins = async () => {
       const coinsData = await getCoinsList();
       setCoins(coinsData);
+      setIsLoading(false);
     };
 
     fetchCoins();
-    console.log("called");
+    coins && coins.sort((a, b) => a.name.localeCompare(b.name));
   }, []);
-
-  coins && coins.sort((a, b) => a.name.localeCompare(b.name));
 
   const headings = ["Symbol", "Name"];
 
-  return (
+  return isLoading ? (
+    <Loading />
+  ) : (
     <div className="m-4 bg-white py-6 px-11">
       <div className="grid grid-cols-2 gap-4 items-center mb-5">
         {headings.map((heading, index) => (

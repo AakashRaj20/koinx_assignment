@@ -9,7 +9,7 @@ const CustomRangeSlider = ({ min, max }) => {
 
   useEffect(() => {
     const difference = max - min;
-    if (difference <= 5) {
+     if (difference <= 5) {
       setStep(0.01);
     } else if (difference <= 10) {
       setStep(0.1);
