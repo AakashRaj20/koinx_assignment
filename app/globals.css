@@ -84,4 +84,52 @@
   body {
     @apply bg-[#EFF2F5] text-foreground;
   }
+
+  .search-bar {
+    @apply w-full bg-[#F5F5F5] p-3 rounded-lg text-sm font-light text-[#3E424A] active:border-none active:border-0
+  }
+
+  .options-tab-style {
+    @apply bg-white flex flex-col px-2 py-4 md:p-10 gap-y-6 rounded-lg;
+  }
+
+  .get-started-div {
+    @apply bg-blue-700 text-white text-center py-6 md:py-12 md:px-24 px-3 rounded-2xl  flex flex-col items-center gap-y-5;
+  }
+
+  .get-started-div-mobile-reverse {
+    @apply flex flex-col-reverse md:flex-col justify-center items-center w-full gap-y-5;
+  }
+
+  .about-already-have-account-divs {
+    @apply flex gap-x-5 rounded-lg p-4 max-w-[25rem] w-full;
+  }
+
+  .range-slider-bg {
+    @apply w-full rounded-lg h-2 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500;
+  }
+
+  .range-slider-thumb-text {
+    @apply text-[#adafb7] text-sm font-medium absolute left-1/2 transform translate-x-[-50%] top-5;
+  }
+
+  .analyst-estimates-div {
+    @apply flex flex-col gap-4 md:gap-6 w-full text-center text-sm justify-center md:text-xl text-[#999AA5];
+  }
+
+  .analyst-estimates-circular-div {
+    @apply rounded-full bg-[#EBF9F4] p-12 flex items-center justify-center w-40 lg:w-60 h-40 lg:h-60;
+  } 
+
+  .analyst-estimates-buy-sell-hold {
+    @apply flex gap-y-6 lg:gap-y-0 lg:flex-row lg:items-center gap-x-2 md:gap-x-12
+  }
+
+  .analyst-estimates-buy-sell-hold-indicators {
+    @apply rounded-md h-4 md:h-5 w-full;
+  }
+  
+  .footer {
+    @apply bg-white gap-12 flex flex-col overflow-hidden md:px-10 py-4 md:py-16 text-2xl md:text-4xl font-medium;
+  }
 }

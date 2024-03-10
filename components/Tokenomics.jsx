@@ -15,7 +15,7 @@ const Tokenomics = () => {
     ],
   };
   return (
-    <div className="bg-white rounded-lg px-2 py-4 lg:p-10 lg:flex flex-col gap-y-6 hidden">
+    <div className="options-tab-style">
       <h2 className="text-4xl font-bold">Tokenomics</h2>
       <p className="text-2xl font-bold">Initial Distribution</p>
       <div className="flex gap-x-5 md:gap-x-10">

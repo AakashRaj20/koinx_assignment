@@ -1,7 +1,7 @@
 "use client";
 
 import CoinsSlider from "./CoinsSlider";
-import { getCoins } from "@/apiCalls/trendingApi";
+import { getCoins } from "@/apiCalls/ApiCalls";
 import { useEffect, useState } from "react";
 
 const Footer = () => {
@@ -14,7 +14,7 @@ const Footer = () => {
     fetchCoins();
   }, []);
   return (
-    <div className="bg-white gap-12 flex flex-col overflow-hidden md:px-10 py-4 md:py-16 text-2xl md:text-4xl font-medium">
+    <div className="footer">
       <div className="flex flex-col gap-y-3">
         <h2>You May Also Like</h2>
         <CoinsSlider arr={coins} />

@@ -2,8 +2,8 @@
 
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { getCoinInfo, getOneCoinInfo } from "@/apiCalls/trendingApi";
-import TradingViewWidget from "@/components/Chart";
+import { getCoinInfo, getOneCoinInfo } from "@/apiCalls/ApiCalls";
+import TradingChart from "@/components/TradingChart";
 import GetStarted from "@/components/GetStarted";
 import TopThreeTrending from "@/components/TopThreeTrending";
 import OptionsTabs from "@/components/OptionsTabs";
@@ -77,7 +77,7 @@ const Coin = () => {
           <div className="grid grid-cols-12 gap-5">
             <div className="col-span-12 lg:col-span-8">
               <div className="flex flex-col gap-y-5">
-                <TradingViewWidget />
+                <TradingChart />
                 <OptionsTabs coinData={oneCoinInfo} />
                 <Sentiment />
                 <AboutCoin coinData={oneCoinInfo} />

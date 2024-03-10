@@ -46,10 +46,10 @@ const CoinsSlider = ({ arr }) => {
                         {each.item.data.price_change_percentage_24h.usd >= 0
                           ? `+${each.item.data.price_change_percentage_24h.usd.toFixed(
                               2
-                            )}`
+                            ).toLocaleString()}`
                           : `${each.item.data.price_change_percentage_24h.usd.toFixed(
                               2
-                            )}`}
+                            ).toLocaleString()}`}
                         %
                       </Button>
                     </div>

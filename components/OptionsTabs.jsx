@@ -17,7 +17,7 @@ const OptionsTabs = ({ coinData }) => {
 
   return (
     <Tabs defaultValue="overview" className="bg-none">
-      <TabsList className="grid w-full grid-flow-col gap-x-10 overflow-x-auto md:overflow-hidden justify-start p-0">
+      <TabsList className="grid w-full grid-flow-col gap-x-8 md:gap-x-20 overflow-x-auto lg:overflow-hidden justify-start p-0">
         {TabTriggers.map((trigger, index) => (
           <TabsTrigger key={index} value={trigger.toLowerCase()}>
             {trigger}
@@ -28,12 +28,12 @@ const OptionsTabs = ({ coinData }) => {
         <Performance coinData={coinData} />
       </TabsContent>
       <TabsContent value="fundamentals">
-        <div className="bg-white flex flex-col p-10 gap-y-6 rounded-lg mt-8">
+        <div className="options-tab-style mt-8">
           <h1 className="text-4xl font-bold">Fundamentals</h1>
         </div>
       </TabsContent>
       <TabsContent value="news insights">
-        <div className="bg-white flex flex-col p-10 gap-y-6 rounded-lg mt-8">
+        <div className="options-tab-style mt-8">
           <h1 className="text-4xl font-bold">News Insights</h1>
         </div>
       </TabsContent>
@@ -44,7 +44,7 @@ const OptionsTabs = ({ coinData }) => {
         <Team />
       </TabsContent>
       <TabsContent value="technicals">
-        <div className="bg-white flex flex-col p-10 gap-y-6 rounded-lg mt-8">
+        <div className="options-tab-style mt-8">
           <h1 className="text-4xl font-bold">Technical</h1>
         </div>
       </TabsContent>

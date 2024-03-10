@@ -29,11 +29,11 @@ const CustomRangeSlider = ({ min, max }) => {
       value={value}
       onChange={(value) => setValue(value)}
       trackClassName="customTrack"
-      className="w-full rounded-lg h-2 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500"
+      className="range-slider-bg"
       thumbClassName="customThumb"
       renderThumb={(props, state) => (
         <div {...props}>
-          <p className="text-[#adafb7] text-sm font-medium absolute left-1/2 transform translate-x-[-50%] top-5">{`$${state.valueNow}`}</p>
+          <p className="range-slider-thumb-text">{`$${state.valueNow.toLocaleString()}`}</p>
         </div>
       )}
     />

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
-import { getCoins } from "@/apiCalls/trendingApi";
+import { getCoins } from "@/apiCalls/ApiCalls";
 import TriangleUp from "./icons/TriangleUp";
 
 const TopThreeTrending = () => {

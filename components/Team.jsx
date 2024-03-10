@@ -23,7 +23,7 @@ const Team = () => {
     },
   ];
   return (
-    <div className="bg-white rounded-lg px-2 py-4 md:p-10 flex flex-col gap-y-6 text-[#3E424A]">
+    <div className="options-tab-style">
       <h2 className="text-4xl font-bold">Team</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod

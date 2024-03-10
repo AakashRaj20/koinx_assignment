@@ -2,13 +2,11 @@
 
 import React, { useEffect, useRef, memo } from "react";
 
-function TradingViewWidget() {
+const TradingChart = () => {
   const container = useRef();
 
   useEffect(() => {
     const scriptId = "tradingview-widget-script";
-
-    // Check if the script already exists in the document
     if (!document.getElementById(scriptId)) {
       const script = document.createElement("script");
 
@@ -45,4 +43,4 @@ function TradingViewWidget() {
   );
 }
 
-export default memo(TradingViewWidget);
+export default memo(TradingChart);

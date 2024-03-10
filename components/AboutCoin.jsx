@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 const AboutCoin = ({ coinData }) => {
   return (
-    <div className="bg-white rounded-lg px-2 py-4 md:p-10 flex flex-col gap-y-6">
+    <div className="options-tab-style">
       <h2 className="text-4xl font-bold">
         {coinData && `About ${coinData.name}`}
       </h2>
@@ -70,7 +70,7 @@ const AboutCoin = ({ coinData }) => {
           coinData && coinData.name
         }?`}</h2>
         <div className="flex flex-col md:flex-row gap-4">
-          <div className="flex gap-x-5 rounded-lg bg-gradient-to-br from-[#76ECA5] to-[#1363AC] p-4 max-w-[25rem] w-full">
+          <div className="about-already-have-account-divs bg-gradient-to-br from-[#76ECA5] to-[#1363AC]">
             <Image
               className="rounded-lg aspect-square"
               src="/images/computer_img_1.jpeg"
@@ -87,7 +87,7 @@ const AboutCoin = ({ coinData }) => {
               </Button>
             </div>
           </div>
-          <div className="flex gap-x-5 rounded-lg bg-gradient-to-br from-[#FF9764] to-[#F13C37] p-4 max-w-[25rem] w-full">
+          <div className="about-already-have-account-divs bg-gradient-to-br from-[#FF9764] to-[#F13C37]">
             <Image
               className="rounded-lg aspect-square"
               src="/images/computer_img_2.jpeg"

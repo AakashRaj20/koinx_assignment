@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const DivSlider = ({ arr }) => {
+const KeyEventsSlider = ({ arr }) => {
   console.log(arr);
 
   return (
@@ -47,4 +47,4 @@ const DivSlider = ({ arr }) => {
   );
 };
 
-export default DivSlider;
+export default KeyEventsSlider;

@@ -4,8 +4,8 @@ import {ArrowRight} from "lucide-react";
 
 const GetStarted = () => {
   return (
-    <div className="bg-blue-700 text-white text-center py-6 md:py-12 md:px-24 px-3 rounded-2xl  flex flex-col items-center gap-y-5">
-      <div className="flex flex-col-reverse md:flex-col justify-center items-center w-full gap-y-5">
+    <div className="get-started-div">
+      <div className="get-started-div-mobile-reverse">
         <div className="flex flex-col gap-y-5">
           <p className="text-xl md:text-3xl font-bold tracking-wider md:leading-[3rem]">
             Get Started with KoinX for FREE
@@ -24,7 +24,7 @@ const GetStarted = () => {
           />
         </div>
       </div>
-      <Button className="bg-white text-black text-xl flex gap-x-3 py-6">
+      <Button className="bg-white text-black text-xl flex gap-x-3 py-6 hover:bg-white">
         Get Started for free <ArrowRight />
       </Button>
     </div>
